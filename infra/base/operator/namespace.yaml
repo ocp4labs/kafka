@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: amq-streams-cdc
+  name: kafka-infra
   labels:
-    app.kubernetes.io/part-of: amq-streams-cdc-demo
+    app.kubernetes.io/part-of: kafka-infra
 
