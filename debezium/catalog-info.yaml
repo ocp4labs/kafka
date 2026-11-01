@@ -5,14 +5,14 @@ metadata:
   description: Change Data Capture pipeline using AMQ Streams (Kafka), Debezium, MySQL, and PostgreSQL on OpenShift
   annotations:
     backstage.io/kubernetes-id: amq-streams-cdc-demo
-    github.com/project-slug: ultraJeffOrg/amq-streams-cdc-demo
+    github.com/project-slug: ocp4labs/kafka
   tags:
     - kafka
     - debezium
     - cdc
     - openshift
   links:
-    - url: https://github.com/ultraJeffOrg/amq-streams-cdc-demo
+    - url: https://github.com/ocp4labs/kafka
       title: GitHub Repo
       icon: github
 spec:
