@@ -2,10 +2,10 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaNodePool
 metadata:
   name: combined
-  namespace: amq-streams-cdc
+  namespace: kafka-infra
   labels:
-    strimzi.io/cluster: cdc-cluster
-    app.kubernetes.io/part-of: amq-streams-cdc-demo
+    strimzi.io/cluster: kafka-cluster
+    app.kubernetes.io/part-of: kafka-infra
 spec:
   replicas: 3
   roles:
@@ -24,16 +24,16 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
-  name: cdc-cluster
-  namespace: amq-streams-cdc
+  name: kafka-cluster
+  namespace: kafka-infra
   labels:
-    app.kubernetes.io/part-of: amq-streams-cdc-demo
+    app.kubernetes.io/part-of: kafka-infra
   annotations:
     strimzi.io/kraft: enabled
     strimzi.io/node-pools: enabled
 spec:
   kafka:
-    version: 4.0.0
+    version: 4.2.0
     listeners:
       - name: plain
         port: 9092
