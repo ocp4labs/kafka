@@ -1,8 +1,8 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: amq-streams
-  namespace: amq-streams-cdc
+  name: kafka-infra
+  namespace: kafka-infra
 spec:
   channel: stable
   installPlanApproval: Automatic
