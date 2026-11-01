@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: amq-streams-cdc-demo
+  description: Change Data Capture pipeline using AMQ Streams (Kafka), Debezium, MySQL, and PostgreSQL on OpenShift
+  annotations:
+    backstage.io/kubernetes-id: amq-streams-cdc-demo
+    github.com/project-slug: ultraJeffOrg/amq-streams-cdc-demo
+  tags:
+    - kafka
+    - debezium
+    - cdc
+    - openshift
+  links:
+    - url: https://github.com/ultraJeffOrg/amq-streams-cdc-demo
+      title: GitHub Repo
+      icon: github
+spec:
+  type: service
+  lifecycle: production
+  owner: user:default/admin

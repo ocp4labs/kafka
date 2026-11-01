@@ -1,0 +1,42 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaConnector
+metadata:
+  name: postgres-sink-connector
+  namespace: amq-streams-cdc
+  labels:
+    strimzi.io/cluster: cdc-connect-cluster
+    app.kubernetes.io/part-of: amq-streams-cdc-demo
+spec:
+  # Debezium JDBC Sink Connector (Red Hat build)
+  class: io.debezium.connector.jdbc.JdbcSinkConnector
+  tasksMax: 1
+  config:
+    # Topics to consume (from Debezium MySQL source)
+    topics: dbserver1.inventory.products
+    
+    # JDBC connection configuration
+    connection.url: "jdbc:postgresql://postgres:5432/inventory"
+    connection.username: "postgres"
+    connection.password: "postgres" # notsecret - demo value
+    
+    # Insert mode - upsert to handle updates
+    insert.mode: "upsert"
+    primary.key.mode: "record_key"
+    primary.key.fields: "id"
+    
+    # Table naming
+    table.name.format: "products"
+    
+    # Schema evolution
+    schema.evolution: "basic"
+    
+    # Converters - match the source connector
+    key.converter: org.apache.kafka.connect.json.JsonConverter
+    key.converter.schemas.enable: true
+    value.converter: org.apache.kafka.connect.json.JsonConverter
+    value.converter.schemas.enable: true
+    
+    # Error handling
+    errors.tolerance: all
+    errors.log.enable: true
+    errors.log.include.messages: true

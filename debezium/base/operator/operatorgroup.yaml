@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: amq-streams-operatorgroup
+  namespace: amq-streams-cdc
+spec:
+  # Empty selector watches the operator's own namespace only
+  # This avoids hardcoding namespace names that break with kustomize overlays
+  upgradeStrategy: Default
+
