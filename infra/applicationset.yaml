@@ -1,29 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: amq-streams-cdc-demo
+  name: kafka-infra
   namespace: openshift-gitops
 spec:
   generators:
     - list:
         elements:
           - env: dev
-            namespace: amq-streams-cdc-dev
+            namespace: kafka-infra-dev
             path: overlays/dev
           - env: prod
-            namespace: amq-streams-cdc
+            namespace: kafka-infra
             path: overlays/prod
   template:
     metadata:
-      name: 'amq-streams-cdc-{{env}}'
+      name: 'kafka-infra-{{env}}'
       labels:
-        app.kubernetes.io/part-of: amq-streams-cdc-demo
+        app.kubernetes.io/part-of: kafka-infra
         environment: '{{env}}'
     spec:
       project: default
       source:
         # Update this to your Git repository URL
-        repoURL: https://github.com/ultraJeffOrg/amq-streams-cdc-demo.git
+        repoURL: https://github.com/ocp4labs/kafka.git
         targetRevision: main
         path: '{{path}}'
       destination:
