@@ -26,9 +26,9 @@ spec:
   source:
     type: Git
     git:
-      uri: https://github.com/ultraJeffOrg/amq-streams-cdc-demo.git
+      uri: https://github.com/ocp4labs/kafka.git
       ref: main
-    contextDir: quarkus-data-producer
+    contextDir: debezium/quarkus-data-producer
   strategy:
     type: Source
     sourceStrategy:
