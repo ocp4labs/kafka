@@ -9,10 +9,10 @@ spec:
         elements:
           - env: dev
             namespace: amq-streams-cdc-dev
-            path: overlays/dev
+            path: debezium/overlays/dev
           - env: prod
             namespace: amq-streams-cdc
-            path: overlays/prod
+            path: debezium/overlays/prod
   template:
     metadata:
       name: 'amq-streams-cdc-{{env}}'
@@ -23,7 +23,7 @@ spec:
       project: default
       source:
         # Update this to your Git repository URL
-        repoURL: https://github.com/ultraJeffOrg/amq-streams-cdc-demo.git
+        repoURL: https://github.com/ocp4labs/kafka.git
         targetRevision: main
         path: '{{path}}'
       destination:
