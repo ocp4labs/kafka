@@ -4,9 +4,6 @@ kind: Kustomization
 resources:
   - operator
   - kafka
-  - databases
-  - kafka-connect
-  - data-producer
 
 commonLabels:
   app.kubernetes.io/managed-by: kustomize
