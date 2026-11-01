@@ -9,10 +9,10 @@ spec:
         elements:
           - env: dev
             namespace: kafka-infra-dev
-            path: overlays/dev
+            path: kafka-infra/overlays/dev
           - env: prod
             namespace: kafka-infra
-            path: overlays/prod
+            path: kafka-infra/overlays/prod
   template:
     metadata:
       name: 'kafka-infra-{{env}}'
