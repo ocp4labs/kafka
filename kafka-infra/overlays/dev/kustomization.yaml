@@ -47,14 +47,12 @@ patches:
       - op: replace
         path: /spec/replicas
         value: 1
-      - op: add
-        path: /metadata/labels/strimzi.io/cluster
-        value: dev-kafka-cluster
     target:
       kind: KafkaTopic
 
 labels:
   - pairs:
       environment: dev
+      strimzi.io/cluster: dev-kafka-cluster
     includeSelectors: false
 
