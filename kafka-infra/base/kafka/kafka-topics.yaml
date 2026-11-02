@@ -4,7 +4,6 @@ metadata:
   name: products
   namespace: kafka-infra
   labels:
-    strimzi.io/cluster: kafka-cluster
     app.kubernetes.io/part-of: kafka-infra
 spec:
   partitions: 3
@@ -19,7 +18,6 @@ metadata:
   name: clients
   namespace: kafka-infra
   labels:
-    strimzi.io/cluster: kafka-cluster
     app.kubernetes.io/part-of: kafka-infra
 spec:
   partitions: 1
@@ -33,7 +31,6 @@ metadata:
   name: positions
   namespace: kafka-infra
   labels:
-    strimzi.io/cluster: kafka-cluster
     app.kubernetes.io/part-of: kafka-infra
 spec:
   partitions: 5
