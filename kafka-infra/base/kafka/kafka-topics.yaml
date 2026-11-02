@@ -1,10 +1,9 @@
-apiVersion: kafka.strimzi.io/v1beta2
+apiVersion: kafka.strimzi.io/v1
 kind: KafkaTopic
 metadata:
   name: products
   namespace: kafka-infra
   labels:
-    strimzi.io/cluster: kafka-cluster
     app.kubernetes.io/part-of: kafka-infra
 spec:
   partitions: 3
@@ -13,13 +12,12 @@ spec:
     retention.ms: 604800000
     cleanup.policy: delete
 ---
-apiVersion: kafka.strimzi.io/v1beta2
+apiVersion: kafka.strimzi.io/v1
 kind: KafkaTopic
 metadata:
   name: clients
   namespace: kafka-infra
   labels:
-    strimzi.io/cluster: kafka-cluster
     app.kubernetes.io/part-of: kafka-infra
 spec:
   partitions: 1
@@ -27,13 +25,12 @@ spec:
   config:
     cleanup.policy: compact
 ---
-apiVersion: kafka.strimzi.io/v1beta2
+apiVersion: kafka.strimzi.io/v1
 kind: KafkaTopic
 metadata:
   name: positions
   namespace: kafka-infra
   labels:
-    strimzi.io/cluster: kafka-cluster
     app.kubernetes.io/part-of: kafka-infra
 spec:
   partitions: 5

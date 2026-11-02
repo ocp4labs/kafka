@@ -53,5 +53,6 @@ patches:
 labels:
   - pairs:
       environment: dev
+      strimzi.io/cluster: dev-kafka-cluster
     includeSelectors: false
 

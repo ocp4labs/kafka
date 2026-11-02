@@ -5,7 +5,6 @@ namespace: kafka-infra
 
 resources:
   - ../../base
-  - pvcs.yaml
 
 patches:
   # Use persistent storage in production
@@ -16,34 +15,11 @@ patches:
           type: persistent-claim
           size: 50Gi
           deleteClaim: false
-      - op: replace
-        path: /spec/zookeeper/storage
-        value:
-          type: persistent-claim
-          size: 10Gi
-          deleteClaim: false
-    target:
-      kind: Kafka
-      name: kafka-cluster
-
-  # Increase resources for production
-  - patch: |-
-      - op: replace
-        path: /spec/kafka/resources/requests/memory
-        value: 2Gi
-      - op: replace
-        path: /spec/kafka/resources/limits/memory
-        value: 4Gi
-      - op: replace
-        path: /spec/kafka/resources/requests/cpu
-        value: 1000m
-      - op: replace
-        path: /spec/kafka/resources/limits/cpu
-        value: 2000m
     target:
       kind: Kafka
       name: kafka-cluster
 
 commonLabels:
   environment: prod
+  strimzi.io/cluster: kafka-cluster
 
