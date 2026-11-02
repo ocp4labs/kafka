@@ -19,18 +19,6 @@ patches:
       kind: Kafka
       name: kafka-cluster
 
-  # Increase resources for production
-  - patch: |-
-      - op: replace
-        path: /spec/kafka/resources/requests/cpu
-        value: 1000m
-      - op: replace
-        path: /spec/kafka/resources/limits/cpu
-        value: 2000m
-    target:
-      kind: Kafka
-      name: kafka-cluster
-
 commonLabels:
   environment: prod
   strimzi.io/cluster: kafka-cluster
