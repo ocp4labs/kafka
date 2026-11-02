@@ -15,12 +15,6 @@ patches:
           type: persistent-claim
           size: 50Gi
           deleteClaim: false
-      - op: replace
-        path: /spec/zookeeper/storage
-        value:
-          type: persistent-claim
-          size: 10Gi
-          deleteClaim: false
     target:
       kind: Kafka
       name: kafka-cluster
