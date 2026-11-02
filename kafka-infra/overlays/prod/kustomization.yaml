@@ -22,9 +22,6 @@ patches:
   # Increase resources for production
   - patch: |-
       - op: add
-        path: /spec/kafka/resources/requests/memory
-        value: 2Gi
-      - op: add
         path: /spec/kafka/resources/limits/memory
         value: 4Gi
       - op: add
