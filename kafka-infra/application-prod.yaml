@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: amq-streams-cdc-demo
+  name: kafka-infra
   namespace: openshift-gitops
   labels:
-    app.kubernetes.io/part-of: amq-streams-cdc-demo
+    app.kubernetes.io/part-of: kafka-infra
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -16,7 +16,7 @@ spec:
     path: debezium/overlays/prod
   destination:
     server: https://kubernetes.default.svc
-    namespace: amq-streams-cdc
+    namespace: kafka-infra
   syncPolicy:
     automated:
       prune: true
@@ -31,13 +31,3 @@ spec:
         duration: 5s
         factor: 2
         maxDuration: 3m
-  ignoreDifferences:
-    - group: apps
-      kind: Deployment
-      jsonPointers:
-        - /spec/replicas
-    - group: kafka.strimzi.io
-      kind: KafkaConnect
-      jsonPointers:
-        - /spec/build/output/image
-
