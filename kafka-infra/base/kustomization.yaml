@@ -5,6 +5,6 @@ resources:
   - operator
   - kafka
 
-labels:
+commonLabels:
   app.kubernetes.io/managed-by: kustomize
 
