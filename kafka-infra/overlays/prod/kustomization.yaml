@@ -46,4 +46,5 @@ patches:
 
 commonLabels:
   environment: prod
+  strimzi.io/cluster: kafka-cluster
 
