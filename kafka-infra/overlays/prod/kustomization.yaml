@@ -5,7 +5,6 @@ namespace: kafka-infra
 
 resources:
   - ../../base
-  - pvcs.yaml
 
 patches:
   # Use persistent storage in production
