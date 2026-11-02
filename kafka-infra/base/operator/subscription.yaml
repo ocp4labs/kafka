@@ -7,6 +7,6 @@ spec:
   channel: stable
   installPlanApproval: Automatic
   name: amq-streams
-  source: cc-redhat-operator-index-v4-22-179306
+  source: cs-redhat-operator-index-v4-22-179306
   sourceNamespace: openshift-marketplace
 
