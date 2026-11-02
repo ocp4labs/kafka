@@ -21,13 +21,10 @@ patches:
 
   # Increase resources for production
   - patch: |-
-      - op: add
-        path: /spec/kafka/resources/limits/memory
-        value: 4Gi
-      - op: add
+      - op: replace
         path: /spec/kafka/resources/requests/cpu
         value: 1000m
-      - op: add
+      - op: replace
         path: /spec/kafka/resources/limits/cpu
         value: 2000m
     target:
