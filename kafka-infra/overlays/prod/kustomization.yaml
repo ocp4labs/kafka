@@ -44,6 +44,6 @@ patches:
       kind: Kafka
       name: kafka-cluster
 
-commonLabels:
+labels:
   environment: prod
 
